@@ -15,6 +15,10 @@
      ;; latex
      deft
      markdown
+     (go :variables
+         gofmt-command "goimports"
+         go-tab-width 4)
+     rust
      (vinegar :variables vinegar-reuse-dired-buffer t)
      org
      prodigy
@@ -53,6 +57,7 @@
      (auto-completion :variables auto-completion-enable-sort-by-usage t
                       :disabled-for org markdown)
      zilongshanren
+     xus
      )
    dotspacemacs-additional-packages '(sicp)
    dotspacemacs-frozen-packages '()
@@ -85,7 +90,7 @@
    dotspacemacs-startup-lists '((recents . 5)
                                 (projects . 7))
    dotspacemacs-scratch-mode 'text-mode
-   dotspacemacs-themes '(solarized-light solarized-dark)
+   dotspacemacs-themes '(solarized-dark solarized-light spacemacs-dark spacemacs-light)
    dotspacemacs-colorize-cursor-according-to-state t
    dotspacemacs-default-font '("Source Code Pro"
                                :size 14
