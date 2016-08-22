@@ -78,8 +78,8 @@ Each entry is either:
       (define-key evil-visual-state-map (kbd "H") 'evil-first-non-blank)
       (define-key evil-normal-state-map (kbd ",w") 'evil-write)
       (define-key evil-normal-state-map (kbd ",q") 'evil-save-and-close)
-      (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
-      (define-key evil-normal-state-map (kbd ",n") 'neotree-toggle)
-      (define-key evil-normal-state-map (kbd ",s") 'evil-avy-goto-char)
+      ;; (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+      ;; (define-key evil-normal-state-map (kbd ",n") 'neotree-toggle)
+      ;; (define-key evil-normal-state-map (kbd ",s") 'evil-avy-goto-char)
       ;; command mode
       ))

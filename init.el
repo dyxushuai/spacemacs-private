@@ -15,9 +15,11 @@
      latex
      deft
      markdown
+     ;; go layer with auto imports and four spacse for tab
      (go :variables
          gofmt-command "goimports"
          go-tab-width 4)
+     ;; rust layer
      rust
      (vinegar :variables vinegar-reuse-dired-buffer t)
      org
@@ -26,7 +28,8 @@
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default nil)
-     (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
+     ;; no need gtags diff form origin
+     ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      yaml
      (python :variables
              python-test-runner '(nose pytest))
