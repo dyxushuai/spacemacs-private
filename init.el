@@ -8,11 +8,11 @@
    '(
      helm
      ivy
-     ;; react
+     react
      better-defaults
      github
      osx
-     ;; latex
+     latex
      deft
      markdown
      (go :variables
@@ -23,24 +23,27 @@
      org
      prodigy
      search-engine
-     (syntax-checking :variables syntax-checking-enable-by-default nil)
+     (syntax-checking :variables syntax-checking-enable-by-default nil
+                      syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default nil)
+     (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      yaml
-     ;; (ruby :variables ruby-version-manager 'rvm)
      (python :variables
              python-test-runner '(nose pytest))
+     (ruby :variables ruby-enable-enh-ruby-mode t
+           ruby-version-manager 'chruby)
+     ruby-on-rails
      lua
      html
-     ;; command-log
      javascript
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
-     ;; restclient
+     restclient
      emacs-lisp
      (clojure :variables clojure-enable-fancify-symbols t)
      ranger
-     ;; racket
+     racket
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
      colors
@@ -76,7 +79,7 @@
                         helm-flyspell flyspell-correct-helm clean-aindent-mode
                         helm-c-yasnippet ace-jump-helm-line helm-make helm-projectile
                         helm-themes helm-swoop helm-spacemacs-help smeargle)
-   dotspacemacs-download-packages 'used
+   dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
 (defun dotspacemacs/init ()
@@ -174,6 +177,34 @@
   ;; (spacemacs/set-leader-keys "bb" 'helm-mini)
 
   (global-hungry-delete-mode t)
+  (spacemacs|diminish helm-gtags-mode)
+  (spacemacs|diminish ggtags-mode)
+
+  ;; https://emacs-china.org/t/ranger-golden-ratio/964/2
+  (defun my-ranger ()
+    (interactive)
+    (if golden-ratio-mode
+        (progn
+          (golden-ratio-mode -1)
+          (ranger)
+          (setq golden-ratio-previous-enable t))
+      (progn
+        (ranger)
+        (setq golden-ratio-previous-enable nil))))
+
+  (defun my-quit-ranger ()
+    (interactive)
+    (if golden-ratio-previous-enable
+        (progn
+          (ranger-close)
+          (golden-ratio-mode 1))
+      (ranger-close)))
+
+  (with-eval-after-load 'ranger
+    (progn
+      (define-key ranger-normal-mode-map (kbd "q") 'my-quit-ranger)))
+
+  (spacemacs/set-leader-keys "ar" 'my-ranger)
 
   (when (configuration-layer/layer-usedp 'ivy)
     (setq projectile-switch-project-action
