@@ -28,8 +28,7 @@
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default nil)
-     ;; no need gtags diff form origin
-     ;; (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
+     gtags
      yaml
      (python :variables
              python-test-runner '(nose pytest))
