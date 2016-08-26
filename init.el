@@ -8,28 +8,38 @@
    '(
      helm
      ivy
-     react
      better-defaults
      github
-     osx
-     latex
-     deft
-     markdown
-     ;; go layer with auto imports and four spacse for tab
-     (go :variables
-         gofmt-command "goimports"
-         go-tab-width 4)
-     ;; rust layer
-     rust
-     (vinegar :variables vinegar-reuse-dired-buffer t)
-     org
+     ranger
+     colors
      prodigy
      search-engine
+     graphviz
      (syntax-checking :variables syntax-checking-enable-by-default nil
                       syntax-checking-enable-tooltips nil)
      (spell-checking :variables spell-checking-enable-by-default nil)
+     (vinegar :variables vinegar-reuse-dired-buffer t)
+     (spacemacs-layouts :variables layouts-enable-autosave nil
+                        layouts-autosave-delay 300)
+     (git :variables
+          git-magit-status-fullscreen t
+          magit-push-always-verify nil
+          magit-save-repository-buffers 'dontask
+          magit-revert-buffers 'silent
+          magit-refs-show-commit-count 'all
+          magit-revision-show-gravatars nil)
+     (ibuffer :variables ibuffer-group-buffers-by 'projects)
+     (auto-completion :variables auto-completion-enable-sort-by-usage t
+                      :disabled-for org markdown)
+     osx
+     restclient
      gtags
+     latex
+     deft
+     markdown
+     org
      yaml
+     react
      (python :variables
              python-test-runner '(nose pytest))
      (ruby :variables ruby-enable-enh-ruby-mode t
@@ -41,28 +51,19 @@
      (typescript :variables
                  typescript-fmt-on-save nil
                  typescript-fmt-tool 'typescript-formatter)
-     restclient
      emacs-lisp
      (clojure :variables clojure-enable-fancify-symbols t)
-     ranger
      racket
-     (spacemacs-layouts :variables layouts-enable-autosave nil
-                        layouts-autosave-delay 300)
-     colors
-     (git :variables
-          git-magit-status-fullscreen t
-          magit-push-always-verify nil
-          magit-save-repository-buffers 'dontask
-          magit-revert-buffers 'silent
-          magit-refs-show-commit-count 'all
-          magit-revision-show-gravatars nil)
-     (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (c-c++ :variables
             c-c++-default-mode-for-headers 'c++-mode)
-     (auto-completion :variables auto-completion-enable-sort-by-usage t
-                      :disabled-for org markdown)
      zilongshanren
      xus
+     ;; go layer with auto imports and four spacse for tab
+     (go :variables
+         gofmt-command "goimports"
+         go-tab-width 4)
+     ;; rust layer
+     rust
      )
    dotspacemacs-additional-packages '(sicp)
    dotspacemacs-frozen-packages '()
@@ -70,7 +71,7 @@
    '(counsel-projectile magit-gh-pulls magit-gitflow org-projectile evil-mc
                         evil-args evil-ediff evil-exchange evil-unimpaired
                         evil-indent-plus volatile-highlights
-                        smartparens spaceline holy-mode skewer-mode rainbow-delimiters
+                        spaceline holy-mode skewer-mode rainbow-delimiters
                         highlight-indentation vi-tilde-fringe eyebrowse hl-anything
                         org-bullets smooth-scrolling org-repo-todo org-download org-timer
                         livid-mode git-gutter git-gutter-fringe  evil-escape
