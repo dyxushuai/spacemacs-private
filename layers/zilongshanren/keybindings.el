@@ -40,7 +40,7 @@
 (global-set-key (kbd "C-s-h") 'mark-defun)
 
 (global-set-key (kbd "s-l") 'goto-line)
-(global-set-key (kbd "s-s") 'save-buffer)
+;; (global-set-key (kbd "s-s") 'save-buffer)
 (global-set-key (kbd "C-`") 'toggle-input-method)
 (global-set-key (kbd "s-d") 'zilongshanren/my-mc-mark-next-like-this)
 (bind-key* "s-r" 'mc/reverse-regions)
@@ -70,11 +70,11 @@
 (bind-key* "s-," 'zilongshanren/insert-comma-at-the-end-of-this-line)
 ;; (bind-key* "C-s-," 'zilongshanren/delete-comma-at-the-end-of-this-line)
 (bind-key* "C-c l" 'zilongshanren/insert-chrome-current-tab-url)
-(bind-key* "M-s o" 'occur-dwim)
+;; (bind-key* "M-s o" 'occur-dwim)
 (bind-key* "C-=" 'er/expand-region)
 (bind-key* "M--" 'zilongshanren/goto-match-paren)
 (bind-key* "C-c k" 'which-key-show-top-level)
-(bind-key* "C-M-s-y" 'aya-expand)
+(bind-key* "s-y" 'aya-expand)
 ;; (bind-key* "C-l" 'recenter)
 
 
@@ -161,3 +161,19 @@
 
 (spacemacs/set-leader-keys "pa" 'projectile-find-other-file)
 (spacemacs/set-leader-keys "pA" 'projectile-find-other-file-other-window)
+
+
+(when (spacemacs/system-is-mswindows)
+  (global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
+  (global-set-key (kbd "s--") 'spacemacs/scale-down-font)
+  (global-set-key (kbd "s-0") 'spacemacs/reset-font-size)
+  (global-set-key (kbd "s-q") 'save-buffers-kill-terminal)
+  (global-set-key (kbd "s-v") 'yank)
+  (global-set-key (kbd "s-c") 'evil-yank)
+  (global-set-key (kbd "s-a") 'mark-whole-buffer)
+  (global-set-key (kbd "s-x") 'kill-region)
+  (global-set-key (kbd "s-w") 'delete-window)
+  (global-set-key (kbd "s-W") 'delete-frame)
+  (global-set-key (kbd "s-n") 'make-frame)
+  (global-set-key (kbd "s-z") 'undo-tree-undo)
+  (global-set-key (kbd "s-Z") 'undo-tree-redo))
