@@ -430,9 +430,9 @@ With PREFIX, cd to project root."
     (do-applescript
      (format
       "
-  tell application \"iTerm\"
+  tell application \"iTerm2\"
        activate
-       set _session to current session of current terminal
+       set _session to current session of current window
        tell _session
             set command to get the clipboard
             write text \"%s\"
@@ -582,3 +582,8 @@ With PREFIX, cd to project root."
 (defun zilongshanren/search-in-fireball ()
   (interactive)
   (helm-do-ag (expand-file-name "~/Github/fireball/")))
+
+
+(defun zilongshanren/show-current-buffer-major-mode ()
+  (interactive)
+  (describe-variable 'major-mode))
