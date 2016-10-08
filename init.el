@@ -40,6 +40,7 @@
      deft
      markdown
      org
+     shaders
      yaml
      react
      (python :variables
@@ -66,6 +67,9 @@
          go-tab-width 4)
      ;; rust layer
      rust
+     (chinese :packages youdao-dictionary fcitx
+              :variables chinese-enable-fcitx t
+              chinese-enable-youdao-dict t)
      )
    dotspacemacs-additional-packages '(sicp)
    dotspacemacs-frozen-packages '()
@@ -165,6 +169,7 @@
   (setq socks-server '("Default server" "127.0.0.1" 1080 5))
   (setq evil-shift-round nil)
   (setq byte-compile-warnings '(not obsolete))
+  (setq warning-minimum-level :error)
   )
 
 (defun dotspacemacs/user-config ()
