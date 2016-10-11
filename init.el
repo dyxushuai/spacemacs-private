@@ -45,9 +45,9 @@
      react
      (python :variables
              python-test-runner '(nose pytest))
-     ;; (ruby :variables ruby-enable-enh-ruby-mode t
-     ;;       ruby-version-manager 'chruby)
-     ;; ruby-on-rails
+     (ruby :variables ruby-enable-enh-ruby-mode t
+           ruby-version-manager 'chruby)
+     ruby-on-rails
      lua
      html
      javascript
@@ -71,14 +71,14 @@
               :variables chinese-enable-fcitx t
               chinese-enable-youdao-dict t)
      )
-   dotspacemacs-additional-packages '(sicp)
+   dotspacemacs-additional-packages '(sicp hl-anything)
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
    '(counsel-projectile magit-gh-pulls magit-gitflow org-projectile evil-mc
                         evil-args evil-ediff evil-exchange evil-unimpaired
                         evil-indent-plus volatile-highlights
                         spaceline holy-mode skewer-mode rainbow-delimiters
-                        highlight-indentation vi-tilde-fringe eyebrowse hl-anything
+                        highlight-indentation vi-tilde-fringe eyebrowse
                         org-bullets smooth-scrolling org-repo-todo org-download org-timer
                         livid-mode git-gutter git-gutter-fringe  evil-escape
                         leuven-theme gh-md evil-lisp-state spray lorem-ipsum
