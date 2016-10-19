@@ -68,7 +68,7 @@
      ;; rust layer
      rust
      (chinese :packages youdao-dictionary fcitx
-              :variables chinese-enable-fcitx t
+              :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
      )
    dotspacemacs-additional-packages '(sicp hl-anything)
