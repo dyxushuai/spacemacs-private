@@ -30,13 +30,14 @@
           magit-revision-show-gravatars nil)
      (ibuffer :variables ibuffer-group-buffers-by 'projects)
      (auto-completion :variables auto-completion-enable-sort-by-usage t
+                      auto-completion-enable-snippets-in-popup t
                       :disabled-for org markdown)
      (osx :variables osx-dictionary-dictionary-choice "Simplified Chinese - English")
      restclient
      (gtags :disabled-for clojure emacs-lisp javascript latex python shell-scripts)
      (shell :variables shell-default-shell 'eshell)
      docker
-     latex
+     ;; latex
      deft
      markdown
      org
@@ -71,7 +72,7 @@
               :variables chinese-enable-fcitx nil
               chinese-enable-youdao-dict t)
      )
-   dotspacemacs-additional-packages '(sicp hl-anything)
+   dotspacemacs-additional-packages '(sicp )
    dotspacemacs-frozen-packages '()
    dotspacemacs-excluded-packages
    '(counsel-projectile magit-gh-pulls magit-gitflow org-projectile evil-mc
@@ -88,7 +89,9 @@
                         helm-flyspell flyspell-correct-helm clean-aindent-mode
                         helm-c-yasnippet ace-jump-helm-line helm-make
                         helm-themes helm-swoop helm-spacemacs-help smeargle
-                        ido-vertical-mode flx-ido company-quickhelp)
+                        ido-vertical-mode flx-ido company-quickhelp
+                        window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                        )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
 
@@ -273,7 +276,8 @@
       (fundamental-mode)))
   (spacemacs/set-leader-keys "otm" 'zilongshanren/toggle-major-mode)
 
-  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on))
+  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
+  )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
 (load custom-file 'no-error 'no-message)
