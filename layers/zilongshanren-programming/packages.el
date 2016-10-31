@@ -118,10 +118,7 @@
   (global-set-key (kbd "C-s-g") 'my-dumb-jump))
 
 (defun zilongshanren-programming/post-init-clojure-mode ()
-  (use-package clojure-mode
-    :defer t
-    :config
-    ))
+  )
 
 (defun zilongshanren-programming/post-init-emacs-lisp ()
     (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode))
@@ -258,7 +255,8 @@
       ;; (add-hook 'spacemacs-mode-hook (lambda () (lispy-mode 1)))
       (add-hook 'clojure-mode-hook (lambda () (lispy-mode 1)))
       (add-hook 'scheme-mode-hook (lambda () (lispy-mode 1)))
-      (add-hook 'cider-repl-mode-hook (lambda () (lispy-mode 1))))
+      ;; (add-hook 'cider-repl-mode-hook (lambda () (lispy-mode 1)))
+      )
     :config
     (progn
       (push '(cider-repl-mode . ("[`'~@]+" "#" "#\\?@?")) lispy-parens-preceding-syntax-alist)
@@ -321,6 +319,9 @@
 
 (defun zilongshanren-programming/post-init-js2-mode ()
   (progn
+    (add-hook 'js2-mode-hook 'my-setup-develop-environment)
+    (add-hook 'web-mode-hook 'my-setup-develop-environment)
+
     (spacemacs|define-jump-handlers js2-mode)
     (add-hook 'spacemacs-jump-handlers-js2-mode 'etags-select-find-tag-at-point)
 
@@ -458,11 +459,7 @@
     (spacemacs/set-leader-keys-for-major-mode 'c++-mode
       "gd" 'etags-select-find-tag-at-point)
 
-    (defvar my-tags-updated-time nil)
 
-    ;; (add-hook 'after-save-hook 'my-auto-update-tags-when-save)
-    (add-hook 'js2-mode-hook 'my-setup-develop-environment)
-    (add-hook 'web-mode-hook 'my-setup-develop-environment)
     (add-hook 'c++-mode-hook 'my-setup-develop-environment)
     (add-hook 'c-mode-hook 'my-setup-develop-environment)
 
@@ -487,7 +484,7 @@
     (c-set-offset 'substatement-open 0)
     (with-eval-after-load 'c++-mode
       (define-key c++-mode-map (kbd "s-.") 'company-ycmd)))
-  ;; company backend should be grouped
+
   )
 
 (defun zilongshanren-programming/init-flycheck-clojure ()
