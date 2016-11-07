@@ -88,7 +88,7 @@
                         helm-c-yasnippet ace-jump-helm-line helm-make
                         helm-themes helm-swoop helm-spacemacs-help smeargle
                         ido-vertical-mode flx-ido company-quickhelp
-                        window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
+                        ;; window-purpose ivy-purpose helm-purpose spacemacs-purpose-popwin
                         )
    dotspacemacs-install-packages 'used-only
    dotspacemacs-delete-orphan-packages t))
@@ -129,6 +129,7 @@
    dotspacemacs-auto-save-file-location 'cache
    dotspacemacs-max-rollback-slots 5
    dotspacemacs-helm-resize nil
+   dotspacemacs-switch-to-buffer-prefers-purpose t
    dotspacemacs-helm-no-header nil
    dotspacemacs-helm-position 'bottom
    dotspacemacs-enable-paste-transient-state nil
@@ -172,7 +173,7 @@
   (setq byte-compile-warnings '(not obsolete))
   (setq warning-minimum-level :error)
   ;; hack for remove purpose mode
-  (setq purpose-mode nil)
+  ;; (setq purpose-mode nil)
   )
 
 (defun dotspacemacs/user-config ()
@@ -210,31 +211,6 @@
   (spacemacs|diminish which-key-mode)
   (spacemacs|diminish spacemacs-whitespace-cleanup-mode)
 
-  ;; https://emacs-china.org/t/ranger-golden-ratio/964/2
-  (defun my-ranger ()
-    (interactive)
-    (if golden-ratio-mode
-        (progn
-          (golden-ratio-mode -1)
-          (ranger)
-          (setq golden-ratio-previous-enable t))
-      (progn
-        (ranger)
-        (setq golden-ratio-previous-enable nil))))
-
-  (defun my-quit-ranger ()
-    (interactive)
-    (if golden-ratio-previous-enable
-        (progn
-          (ranger-close)
-          (golden-ratio-mode 1))
-      (ranger-close)))
-
-  (with-eval-after-load 'ranger
-    (progn
-      (define-key ranger-normal-mode-map (kbd "q") 'my-quit-ranger)))
-
-  (spacemacs/set-leader-keys "ar" 'my-ranger)
 
   (when (configuration-layer/layer-usedp 'ivy)
     (setq projectile-switch-project-action
@@ -277,7 +253,6 @@
   (spacemacs/set-leader-keys "otm" 'zilongshanren/toggle-major-mode)
 
   (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
-
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
