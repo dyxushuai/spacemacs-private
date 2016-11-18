@@ -32,20 +32,19 @@ values."
    dotspacemacs-configuration-layers
    '(
      ivy
-      better-defaults
-      github
-      ranger
-      colors
-      prodigy
-      search-engine
-      graphviz
-      (syntax-checking :variables syntax-checking-enable-by-default nil
-                       syntax-checking-enable-tooltips nil)
-      (spell-checking :variables spell-checking-enable-by-default nil)
-      (vinegar :variables vinegar-reuse-dired-buffer t)
+     better-defaults
+     github
+     ranger
+     colors
+     prodigy
+     search-engine
+     graphviz
+     (syntax-checking :variables syntax-checking-enable-by-default nil
+                      syntax-checking-enable-tooltips nil)
+     (spell-checking :variables spell-checking-enable-by-default nil)
+     (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
-<<<<<<< HEAD
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
