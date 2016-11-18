@@ -32,19 +32,20 @@ values."
    dotspacemacs-configuration-layers
    '(
      ivy
-     better-defaults
-     github
-     ranger
-     colors
-     prodigy
-     search-engine
-     graphviz
-     (syntax-checking :variables syntax-checking-enable-by-default nil
-                      syntax-checking-enable-tooltips nil)
-     (spell-checking :variables spell-checking-enable-by-default nil)
-     (vinegar :variables vinegar-reuse-dired-buffer t)
+      better-defaults
+      github
+      ranger
+      colors
+      prodigy
+      search-engine
+      graphviz
+      (syntax-checking :variables syntax-checking-enable-by-default nil
+                       syntax-checking-enable-tooltips nil)
+      (spell-checking :variables spell-checking-enable-by-default nil)
+      (vinegar :variables vinegar-reuse-dired-buffer t)
      (spacemacs-layouts :variables layouts-enable-autosave nil
                         layouts-autosave-delay 300)
+<<<<<<< HEAD
      (git :variables
           git-magit-status-fullscreen t
           magit-push-always-verify nil
@@ -436,7 +437,23 @@ values."
       (fundamental-mode)))
   (spacemacs/set-leader-keys "otm" 'zilongshanren/toggle-major-mode)
 
-  (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
+  ;; (add-hook 'text-mode-hook 'spacemacs/toggle-spelling-checking-on)
+
+  ;; https://github.com/syl20bnr/spacemacs/issues/7749
+  (defun spacemacs/ivy-persp-switch-project (arg)
+    (interactive "P")
+    (ivy-read "Switch to Project Perspective: "
+              (if (projectile-project-p)
+                  (cons (abbreviate-file-name (projectile-project-root))
+                        (projectile-relevant-known-projects))
+                projectile-known-projects)
+              :action (lambda (project)
+                        (let ((persp-reset-windows-on-nil-window-conf t))
+                          (persp-switch project)
+                          (let ((projectile-completion-system 'ivy)
+                                (old-default-directory default-directory))
+                            (projectile-switch-project-by-name project)
+                            (setq default-directory old-default-directory))))))
   )
 
 (setq custom-file (expand-file-name "custom.el" dotspacemacs-directory))
